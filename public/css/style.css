@@ -1,0 +1,50 @@
+/*all*/
+.body-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+
+}
+
+button {
+    /*width: 180px;*/
+    cursor: pointer;
+}
+
+
+/*search*/
+.search-form {
+    margin: 1%;
+    padding: 1%;
+    background-color: darkblue;
+}
+
+
+
+#carouselExampleIndicators {
+    alignment: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    width: 100%;
+    height: 380px !important;
+}
+
+.slick-next:before, .slick-prev:before {
+    color: black !important;
+}
+
+#topUsers {
+    background-color: orchid;
+}
+
+form.search-form-main {
+    background: rgba(0, 0, 0, .5);
+    margin-top: -175px;
+    margin-bottom: 115px;
+    position: relative;
+    padding: 20px;
+}
