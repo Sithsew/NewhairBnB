@@ -1,7 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/20/2017
- * Time: 12:20 PM
- */
+
+namespace App\Core;
+
+
+class Request
+{
+    public static function uri()
+    {
+        return trim(
+            parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'
+        );
+    }
+
+
+    public static function method()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
+
+
+}

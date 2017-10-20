@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/20/2017
- * Time: 12:19 PM
- */
+
+$router->get('', 'PagesController@home');
+
+$router->get('about','PagesController@about');
+$router->get('contacts','PagesController@contacts');
+$router->get('users', 'UsersController@index');
+$router->post('users', 'UsersController@store');
+
+//var_dump($router->routes);

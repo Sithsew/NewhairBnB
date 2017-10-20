@@ -1,7 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/20/2017
- * Time: 12:20 PM
- */
+
+use App\Core\App;
+
+App::bind('config', require 'config.php');
+
+App::bind('database', new QueryBuilder(
+
+    Connection::make($config = App::get('config')['database'])
+
+));
+
+function view($name, $data=[])
+{
+
+    extract($data);
+
+    return require  "app/views/{$name}.view.php";
+
+
+}
+
+
+function redirect($path){
+
+    header("Location:/{$path}");
+
+}

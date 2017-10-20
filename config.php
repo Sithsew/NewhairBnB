@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/20/2017
- * Time: 12:17 PM
- */
+
+return [
+
+    'database' => [
+        'name' => 'blog',
+        'username' => 'root',
+        'password' => '',
+        'connection' => 'mysql:host=127.0.0.1',
+        'options' => [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    ]
+
+];

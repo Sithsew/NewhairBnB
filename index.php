@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/20/2017
- * Time: 12:17 PM
- */
+
+use App\Core\Router;
+use App\Core\Request;
+
+require 'vendor/autoload.php';
+
+require 'core/bootstrap.php';
+
+Router::load('app/routes.php')
+    ->direct(Request::uri(), Request::method());
