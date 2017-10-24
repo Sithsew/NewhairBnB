@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Controllers;
+namespace App\DataServices;
 
 use App\Core\App;
 
-class UsersController
+class AccountDataService
 {
-
-    public function index()
+    public function getUser()
     {
-        $users = App::get('database')->getTopUsers('trn_user', 'id', 2);
-//        return view('users', compact('users'));
+        $users = App::get('database')->selectAll('trn_user');
         dd($users);
 
     }
 
-    public function store()
+
+    public function insertUser()
     {
 
         App::get('database')->insert('trn_user', [
@@ -31,5 +30,4 @@ class UsersController
 //        header('Location: /users');
 
     }
-
 }

@@ -6,13 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\AccountController' => $baseDir . '/app/controllers/AccountController.php',
     'App\\Controllers\\UsersController' => $baseDir . '/app/controllers/UsersController.php',
+    'App\\Controllers\\WelcomeController' => $baseDir . '/app/controllers/WelcomeController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
     'App\\Core\\Request' => $baseDir . '/core/Request.php',
     'App\\Core\\Router' => $baseDir . '/core/Router.php',
+    'App\\DataServices\\AccountDataService' => $baseDir . '/app/data services/AccountDataService.php',
+    'App\\dataServices\\WelcomeDataService' => $baseDir . '/app/data services/WelcomeDataService.php',
     'ComposerAutoloaderInit2303d810f319f0d41beee75b9decaeb0' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit2303d810f319f0d41beee75b9decaeb0' => $vendorDir . '/composer/autoload_static.php',
     'Connection' => $baseDir . '/core/database/Connection.php',
     'QueryBuilder' => $baseDir . '/core/database/QueryBuilder.php',
+    'StoredProcedures' => $baseDir . '/core/database/StoredProcedures.php',
+    'WelcomeService' => $baseDir . '/app/business services/WelcomeService.php',
 );

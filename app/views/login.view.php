@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form method="post" action="/signUp">
                     <div class="form-group">
                         <label><b>Email</b></label>
                         <input type="text" class="form-control" name="email" required>

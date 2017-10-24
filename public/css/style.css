@@ -48,3 +48,7 @@ form.search-form-main {
     position: relative;
     padding: 20px;
 }
+
+.error {
+    color: red;
+}

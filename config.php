@@ -3,7 +3,7 @@
 return [
 
     'database' => [
-        'name' => 'blog',
+        'name' => 'hairb2b',
         'username' => 'root',
         'password' => '',
         'connection' => 'mysql:host=127.0.0.1',

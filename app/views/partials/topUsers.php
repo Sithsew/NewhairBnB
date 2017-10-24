@@ -8,281 +8,55 @@
 
             <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block" >Previous</button>
 
-            <div>
+            <?php foreach ($salons as $salon): ?>
 
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
 
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
+                <div>
 
-                    <div class="card-block" align="center" >
+                    <div class="card" style="width: 13rem; height:340px; padding-top: 15px;background-color: mediumpurple" align="center">
 
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
+                        <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
 
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                        <div class="card-block" align="center" >
+
+                            <h3 class="card-title" style="color: black">
+                                <?= $salon->business_name?>
+                            </h3>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->address_line1?>
+                            </h6>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->address_line2?>
+                            </h6>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->postal_code?>
+                            </h6>
+
+                            <div class="row" align="center" style="margin-left:15px">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                            </div>
+
+                            <a href="#" >More</a>
+
                         </div>
-
-                        <a href="#" >More</a>
 
                     </div>
 
                 </div>
 
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <?php endforeach; ?>
 
             <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
 
         </div>
     </div>
 </div>
+
+
 <!--/.Popular hair stylists-->
 
 <div class="container-fluid pop-stylists " style="margin-bottom: 210px">
@@ -294,275 +68,47 @@
 
             <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block">Previous</button>
 
-            <div>
+            <?php foreach ($salons as $salon): ?>
 
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
 
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
+                <div>
 
-                    <div class="card-block" align="center" >
+                    <div class="card" style="width: 13rem; height:340px; padding-top: 15px;background-color: mediumpurple" align="center">
 
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
+                        <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
 
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                        <div class="card-block" align="center" >
+
+                            <h3 class="card-title" style="color: black">
+                                <?= $salon->business_name?>
+                            </h3>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->address_line1?>
+                            </h6>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->address_line2?>
+                            </h6>
+                            <h6 class="card-text" style="color: black">
+                                <?= $salon->postal_code?>
+                            </h6>
+
+                            <div class="row" align="center" style="margin-left:15px">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                                <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
+                            </div>
+
+                            <a href="#" >More</a>
+
                         </div>
-
-                        <a href="#" >More</a>
 
                     </div>
 
                 </div>
 
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="card" style="width: 13rem; height:320px; padding-top: 15px;background-color: mediumpurple" align="center">
-
-                    <img class="card-img-top" src="../../public/images/proPic.png" alt="Card image cap" style="width: 70%;" >
-
-                    <div class="card-block" align="center" >
-
-                        <h4 class="card-title" style="color: black">John Doe</h4>
-                        <p class="card-text" style="color: black">Kandy, SL</p>
-
-                        <div class="row" align="center" style="margin-left:15px">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                            <img src="../../public/images/star.png" style="width:30px; height: 30%;size:auto">
-                        </div>
-
-                        <a href="#" >More</a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <?php endforeach; ?>
 
             <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
 
