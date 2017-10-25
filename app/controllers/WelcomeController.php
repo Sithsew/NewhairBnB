@@ -12,10 +12,12 @@ class WelcomeController
     {
 
         require 'app/business services/WelcomeService.php';
-        $welcome = new \WelcomeService();
-        $salons = $welcome->welcome();
+        $response = new \WelcomeService();
+        $topUsers = $response->welcome();
+        $salons= $topUsers["salons"];
+        $stylists =$topUsers["stylists"] ;
 
-        return view('welcome', compact('salons'));
+        return view('welcome', compact('salons', 'stylists'));
     }
 
 

@@ -8,7 +8,7 @@
 
             <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block" >Previous</button>
 
-            <?php foreach ($salons as $salon): ?>
+            <?php foreach ($stylists as $stylist): ?>
 
 
                 <div>
@@ -20,16 +20,16 @@
                         <div class="card-block" align="center" >
 
                             <h3 class="card-title" style="color: black">
-                                <?= $salon->business_name?>
+                                <?= $stylist->business_name?>
                             </h3>
                             <h6 class="card-text" style="color: black">
-                                <?= $salon->address_line1?>
+                                <?= $stylist->address_line1?>
                             </h6>
                             <h6 class="card-text" style="color: black">
-                                <?= $salon->address_line2?>
+                                <?= $stylist->address_line2?>
                             </h6>
                             <h6 class="card-text" style="color: black">
-                                <?= $salon->postal_code?>
+                                <?= $stylist->postal_code?>
                             </h6>
 
                             <div class="row" align="center" style="margin-left:15px">

@@ -1,7 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/24/2017
- * Time: 8:42 AM
- */
+
+
+class AccountService
+{
+
+    public function signUp($firstname, $lastname, $email, $password, $userRole, $salonName,$stylistBname, $emailPreference )
+    {
+        require 'app/data services/AccountDataService.php';
+        $response = new \App\dataServices\AccountDataService();
+        $response -> insertUser($firstname, $lastname, $email, $password, $userRole,$salonName,$stylistBname, $emailPreference);
+
+    }
+
+}
+
+

@@ -9,7 +9,11 @@ class WelcomeDataService
     public function welcome()
     {
 
-        return App::get('database')->BSP_SalonGetTopSalons( 10);
+        $topUsers = [];
+        $topUsers["salons"] =  App::get('database')->BSP_SalonGetTopSalons( 10);
+        $topUsers["stylists"] = App::get('database')->BSP_StylistGetTopStylists( 10);
+
+        return $topUsers;
 
 //        $stylists = App::get('database')->getTopUsers('trn_stylist', 'id', 10);
 //        dd($salons);

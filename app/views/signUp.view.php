@@ -49,15 +49,15 @@
 
                     <div class="form-group">
                         <label><b>Business Name for Salon</b></label>
-                        <input type="text" class="form-control" name="bnameSalon" required>
+                        <input type="text" class="form-control" name="bnameSalon" >
                     </div>
 
                     <div class="form-group">
                         <label><b>Business Name for Stylist</b></label>
-                        <input type="text" class="form-control" name="bnameStylist" required>
+                        <input type="text" class="form-control" name="bnameStylist" >
                     </div>
 
-                    <input type="checkbox" checked="checked"> I would like to receive promotion emails.
+                    <input type="checkbox" value="1" checked="checked" name="preference"> I would like to receive promotion emails.
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                     <div align="right">

@@ -44,7 +44,7 @@ class StoredProcedures
     function BSP_StylistGetTopStylists($limit)
     {
 
-        $statement = $this->pdo->prepare("select * from trn_salon ORDER BY net_rating DESC LIMIT {$limit};");
+        $statement = $this->pdo->prepare("select * from trn_stylist ORDER BY net_rating DESC LIMIT {$limit};");
 
         $statement->execute();
 
@@ -134,9 +134,11 @@ class StoredProcedures
 
             $statement->execute($parameters);
 
+            return $id = $this->pdo->lastInsertId();
+//            return $id;
         } catch (Exception $e) {
 
-            die('Whoops, something went wrong!');
+            echo $e;
         }
 
     }

@@ -17,6 +17,7 @@ class AccountController
     private $salon;
     private $stylist;
     private $userRole;
+    private $emailPreference;
 //$Snorkeling= $_POST['Snorkeling'];
 
 
@@ -31,6 +32,7 @@ class AccountController
         $this->bussNameStylist = isset($_POST['bnameStylist']) ? $_POST['bnameStylist'] : null;
         $this->salon = isset($_POST['salon']) ? $_POST['salon'] : null;
         $this->stylist = isset($_POST['stylist']) ? $_POST['stylist'] : null;
+        $this->emailPreference = isset($_POST['preference']) ? $_POST['preference'] : 0;
 
     }
 
@@ -48,19 +50,20 @@ class AccountController
         else
         {
 
-            if ($this->salon!== null && $this->stylist !== null){
-                $this->userRole=3;
-            }else if ($this->salon !== null){
-                $this->userRole = 1;
-            }else {
-                $this->userRole =2;
-            }
-
             if (($this->salon !== null && $this->bussNameSalon !== null) || ($this->stylist!== null && $this->bussNameStylist!== null)){
 
+                if ($this->salon!== null && $this->stylist !== null){
+                    $this->userRole=3;
+                }else if ($this->salon !== null){
+                    $this->userRole = 1;
+                }else {
+                    $this->userRole =2;
+                }
 
+                require 'app/business services/AccountService.php';
+                $response = new \AccountService();
+                $response->signUp($this->firstName, $this->lastName, $this->email, $this->password, $this->userRole,$this->bussNameSalon, $this->bussNameStylist,$this->emailPreference);
 
-                echo " Registration Done";
                 redirect('welcome');
 
             }else {
@@ -75,8 +78,3 @@ class AccountController
 
 
 }
-//$register = new RegisterUser();
-//if(!empty($_POST))
-//{
-//    $register->start();
-//}
