@@ -274,7 +274,7 @@ class AccountController
         view('salon');
     }
 
-    function both(){
+    function home(){
         view('bothUsers');
     }
 

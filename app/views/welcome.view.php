@@ -33,9 +33,9 @@
 
                     if (isset($_SESSION['id'])){
                         $role = $_SESSION['user_role'];
-                        if ($role===3){
+                        if ($role==='3'){
                             $a='/both  ';
-                        }elseif ($role===2){
+                        }elseif ($role==='2'){
                             $a=' /stylist ';
                         }else{
                             $a=' /salon';

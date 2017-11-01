@@ -8,13 +8,22 @@
 
         <div>
             <div style="padding: 3%" align="center">
+                <a href="/login"><img src="../public/images/home.png" style="height: 40px;"align="right" ></a>
                 <h1>Welcome to Hair BnB,</h1>
                 <h3><? echo $firstname." " .$lastname?></h3>
 
-                <h4 style="padding: 20px">
-                <h4><a href="/welcome">Home</a></h4>
-                <h4><a href="/stylist">Stylist Account</a></h4>
-                <h4><a href="/salon">Salon Account</a></h4>
+                <h2> Select Where You Want to Go</h2>
+                  <div class="row">
+                      <div class="col-md-3"  align="center">
+
+                      </div>
+                      <div class="col-md-3" align="center" style="padding: 70px">
+                          <a href="/stylist"><img src="../public/images/stylistAcc.jpg" style="height: 210px;"align="right" ></a>
+                      </div>
+                      <div class="col-md-3" align="center" style="padding: 70px">
+                          <a href="/salon"><img src="../public/images/salonAcc.jpg" style="height: 210px;"align="right" ></a>
+                      </div>
+                  </div>
 
             </div>
         </div>
