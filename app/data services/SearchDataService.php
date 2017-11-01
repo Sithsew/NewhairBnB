@@ -1,7 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sithara_s
- * Date: 10/23/2017
- * Time: 3:13 PM
- */
+namespace App\DataServices;
+
+use App\Core\App;
+
+class SearchDataService
+{
+     public function search($search)
+     {
+         $date = $search['date'];
+         $location= $search['location'];
+         $skill =$search['skill'];
+         $business_name = $search['businessName'];
+         $priceFrom = $search['priceFrom'];
+         $priceTo = $search['priceTo'];
+         $gender = $search['gender'];
+         $type = $search['type'];
+
+         return App::get('database')->BSP_StylistSearchStylist($date,$location, $skill, $business_name,$priceFrom, $priceTo,$type, $gender );
+
+     }
+}

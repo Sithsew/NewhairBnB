@@ -1,105 +1,54 @@
 <?php
 
+namespace App\Controllers;
 
-//ob_start();
-//session_start();
-//if( isset($_SESSION['user'])!="" ){
-//header("Location: home.php");
-//}
-//include_once 'dbconnect.php';
-//
-//$error = false;
+use App\Core\App;
 
-//if ( isset($_POST['btn-signUp']) ) {
-//
-//    // clean user inputs to prevent sql injections
-//    $firstname = trim($_POST['firstname']);
-//    $firstname = strip_tags($firstname);
-//    $firstname = htmlspecialchars($firstname);
-//
-//    $name = trim($_POST['lastname']);
-//    $name = strip_tags($name);
-//    $name = htmlspecialchars($name);
-//
-//
-//    $email = trim($_POST['email']);
-//    $email = strip_tags($email);
-//    $email = htmlspecialchars($email);
-//
-//    $pass = trim($_POST['pass']);
-//    $pass = strip_tags($pass);
-//    $pass = htmlspecialchars($pass);
-//
-//    $name = trim($_POST['confpass']);
-//    $name = strip_tags($name);
-//    $name = htmlspecialchars($name);
-//
-//
-//    $name = trim($_POST['Bname1']);
-//    $name = strip_tags($name);
-//    $name = htmlspecialchars($name);
-//
-//
-//    $name = trim($_POST['Bname2']);
-//    $name = strip_tags($name);
-//    $name = htmlspecialchars($name);
-//
-//    // basic name validation
-//    if (empty($name)) {
-//        $error = true;
-//        $nameError = "Please enter your full name.";
-//    } else if (strlen($name) < 3) {
-//        $error = true;
-//        $nameError = "Name must have atleat 3 characters.";
-//    } else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-//        $error = true;
-//        $nameError = "Name must contain alphabets and space.";
+
+class SearchController
+{
+    private $response;
+
+    function __construct()
+    {
+        require 'app/business services/SearchService.php';
+        $this->response = new \SearchService();
+    }
+
+    public function search()
+    {
+        $search = [];
+        function test_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        $search['date'] = isset($_POST['date']) ? test_input($_POST['date']) : null;
+        $search['location'] = isset($_POST['city']) ? test_input($_POST['city']) : null;
+        $search['skill'] = isset($_POST['skills']) ? test_input($_POST['skills']) : 0;
+        $search['businessName'] = isset($_POST['bname']) ? test_input($_POST['bname']) : null;
+        $search['priceFrom'] = isset($_POST['priceFrom']) ? test_input($_POST['priceFrom']) : 0;
+        $search['priceTo'] = isset($_POST['priceTo']) ? test_input($_POST['priceTo']) : null;
+        $search['gender'] = isset($_POST['gender']) ? test_input($_POST['gender']) : null;
+        $search['type'] = isset($_POST['type']) ? test_input($_POST['type']) : 0;
+
+        $stylists=$this->response->search($search);
+
+        return view('search',compact('stylists','search'));
+
+    }
+
+    function searchView(){
+
+        return view('search');
+
+    }
+
+//    function searchView(){
+//        view('search');
 //    }
-//
-//    //basic email validation
-//    if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
-//        $error = true;
-//        $emailError = "Please enter valid email address.";
-//    } else {
-//        // check email exist or not
-//        $query = "SELECT userEmail FROM users WHERE userEmail='$email'";
-//        $result = mysql_query($query);
-//        $count = mysql_num_rows($result);
-//        if($count!=0){
-//            $error = true;
-//            $emailError = "Provided Email is already in use.";
-//        }
-//    }
-//    // password validation
-//    if (empty($pass)){
-//        $error = true;
-//        $passError = "Please enter password.";
-//    } else if(strlen($pass) < 6) {
-//        $error = true;
-//        $passError = "Password must have atleast 6 characters.";
-//    }
-//
-//    // password encrypt using SHA256();
-//    $password = hash('sha256', $pass);
-//
-//    // if there's no error, continue to signup
-//    if( !$error ) {
-//
-//        $query = "INSERT INTO users(userName,userEmail,userPass) VALUES('$name','$email','$password')";
-//        $res = mysql_query($query);
-//
-//        if ($res) {
-//            $errTyp = "success";
-//            $errMSG = "Successfully registered, you may login now";
-//            unset($name);
-//            unset($email);
-//            unset($pass);
-//        } else {
-//            $errTyp = "danger";
-//            $errMSG = "Something went wrong, try again later...";
-//        }
-//
-//    }
-//
-//
-//};
+}
+

@@ -14,25 +14,54 @@
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+        <script type="text/javascript" src="../../../scripts/angular.min.js"></script>
         <link rel="stylesheet" href="../../public/css/style.css">
 
     </head>
 
     <body>
+<?php session_start();
 
+?>
         <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse" style="background-color: mediumvioletred">
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Hair BnB</a>
+            <a class="navbar-brand" href="welcome">Hair BnB</a>
             <div class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-toggler-right">
-                <p class="nav-item " >
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login </a>
-                    <?php include 'login.view.php'?>
+
+                <?php
+
+                    if (isset($_SESSION['id'])){
+                        $role = $_SESSION['user_role'];
+                        if ($role===3){
+                            $a='/both  ';
+                        }elseif ($role===2){
+                            $a=' /stylist ';
+                        }else{
+                            $a=' /salon';
+                        }
+                ?>
+                <p class="nav-item " ><a class="nav-link" href=<?= "$a"?>>
+                    <?php
+                        $firstname = ucwords($_SESSION['firstname']);
+                        $lastname =ucwords($_SESSION['lastname']);
+                        echo $firstname." ".$lastname;
+                    ?>
+                    </a>
                 </p>
-                <p >
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signUpModal">Sign Up </a>
-                    <?php include 'signUp.view.php'?>
+
+                <?php } else {?>
+                    <p class="nav-item " >
+
+                        <a class="nav-link" href="#" data-backdrop=" " data-toggle="modal" data-target="#loginModal" >Login </a>
+                        <?php include 'login.view.php'?>
+                    </p>
+                    <p >
+                        <a class="nav-link" href="/signUp"  >Sign Up </a>
+                    </p>
+                <?php } ?>
+<!--                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signUpModal">Sign Up </a>-->
+<!--                    --><?php  //include 'signUp.view.php'?>
 
             </div>
 
@@ -42,7 +71,7 @@
 
         <?php include 'partials/slideShow.php'?>
 
-        <form action=" " class="search-form-main">
+        <form action="/search" method="post" class="search-form-main">
 
             <div class="row">
 
@@ -54,19 +83,21 @@
                     <div class="row">
                         <label for="example-date-input" class="col-md-4 col-form-label" style="color: white;"><b>Date</b></label>
                         <div class="col-8">
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                            <input class="form-control" name="date" type="date" value="<?= date("Y-m-d")?>" id="example-date-input">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-2 form-group">
                     <div class="row">
-                        <label for="" class="col-md-4 col-form-label" style="color: white;"><b>Location</b></label>
+                        <label for="" class="col-md-4 col-form-label" style="color: white;" ><b>Location</b></label>
                         <div class="col-8">
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Colombo</option>
-                                <option>Galle</option>
-                                <option>Kurunagala</option>
+                            <select class="form-control" id="exampleSelect1" name="city">
+                                <option value="0">All</option>
+                                <option value="colombo">Colombo</option>
+                                <option value="galle">Galle</option>
+                                <option value="kurunagala">Kurunagala</option>
+
                             </select>
                         </div>
                     </div>
@@ -76,10 +107,12 @@
                     <div class="row">
                         <label for="" class="col-md-4 col-form-label" style="color: white;"><b>Skills</b></label>
                         <div class="col-md-8">
-                            <select class="form-control" id="exampleSelect1">
-                                <option>Professional</option>
-                                <option>Apprentice</option>
-                                <option>Educator</option>
+                            <select class="form-control" id="exampleSelect1" name="skills">
+                                <option value="0">All</option>
+                                <option value="1">Professional</option>
+                                <option value="2">Educator</option>
+                                <option value="3">Apprentice</option>
+
                             </select>
                         </div>
                     </div>
@@ -97,12 +130,12 @@
 
         <div class="body-container">
 
-            <div style="margin-top: 20px">
+            <div class="about">
 
                 <h2 align="center">How it works?</h2>
 
 <!--                images-->
-                <div class="row" style="margin-top: 20px">
+                <div class="row" style="margin-top: 15px">
 
                     <div class="col-md-4" align="center">
                         <img src="../../public/images/search.png" style="width: 20%" >

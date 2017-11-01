@@ -7,91 +7,92 @@ use App\Core\App;
 class AccountDataService
 {
 
-    private $bussNameSalon;
-    private $bussNameStylist;
-    private $userRole;
-    private $uId;
-
     private $startedDate = 2017-10-03;
 
+    public function checkEmail($email)
+    {
+        return App::get('database')-> BSP_UserCheckEmail($email);
+    }
 
-    public function insertUser($firstname, $lastname, $email, $password, $userRole, $salonName, $stylistBname, $emailPreference){
+    public function getUserDetails($email, $password)
+    {
+        return App::get('database')->BSP_UserGetDetails($email, $password);
+    }
 
+    public function insertUser($userData)
+    {
+        $userRole = $userData['user_role'];
+        $bussNameSalon = $userData['salon'];
+        $bussNameStylist = $userData['stylist'];
 
-        $this->userRole = $userRole;
-        $this->bussNameSalon = $salonName;
-        $this->bussNameStylist = $stylistBname;
-
-        $this->uId = App::get('database')->CSP_UserInsert('trn_user', [
-            "email" => $email,
-            "password" => $password,
-            "user_role" => $this->userRole,
-            "email_preference" => $emailPreference,
-            "firstname" =>$firstname ,
-            "lastname" => $lastname,
+        $uId = App::get('database')->CSP_UserInsert('trn_user', [
+            "email" => $userData['email'],
+            "password" => $userData['password'],
+            "user_role" =>$userRole,
+            "temp_password" => $userData['temp_password'],
+            "email_preference" => $userData['email_preference'],
+            "firstname" =>$userData['firstName'] ,
+            "lastname" => $userData['lastName'],
         ]);
 
-        if ($this->userRole===1){
+        if ($userRole===1){
 
             $salonId = App::get('database')->CSP_UserInsert('trn_salon', [
-                "business_name" => $this->bussNameSalon,
+                "business_name" =>$bussNameSalon ,
                 "started_date" => $this-> startedDate,
-                "user_id" => $this-> uId
+                "user_id" => $uId
 
             ]);
 
-        }elseif ($this-> userRole===2){
+        }elseif ($userRole===2){
             $stylistId = App::get('database')->CSP_UserInsert('trn_stylist', [
-                "business_name" => $this->bussNameStylist,
-                "started_date" => $this->startedDate,
-                "user_id" => $this->uId
+                "business_name" => $bussNameStylist,
+                "started_date" =>  $this-> startedDate,
+                "user_id" => $uId
             ]);
 
         }else{
 
             $salonId = App::get('database')->CSP_UserInsert('trn_salon', [
-                "business_name" => $this->bussNameSalon,
+                "business_name" =>$bussNameSalon ,
                 "started_date" => $this-> startedDate,
-                "user_id" => $this-> uId
+                "user_id" => $uId
 
             ]);
 
             $stylistId = App::get('database')->CSP_UserInsert('trn_stylist', [
-                "business_name" => $this->bussNameStylist,
+                "business_name" => $bussNameStylist,
                 "started_date" => $this->startedDate,
-                "user_id" => $this->uId
+                "user_id" => $uId
             ]);
         }
 
     }
 
-//    public function insertSalon($businessName, $startedDate, $uId){
-//
-//        $salonId = App::get('database')->CSP_UserInsert('trn_salon', [
-//            "business_name" => $businessName,
-//            "started_date" => $startedDate,
-//            "user_id" => $uId
-//
-//        ]);
-//
-//    }
-//
-//
-//    public function insertStylist($businessName, $startedDate, $uId){
-//        $stylistId = App::get('database')->CSP_UserInsert('trn_stylist', [
-//            "business_name" => $businessName,
-//            "started_date" => $startedDate,
-//            "user_id" => $uId
-//        ]);
-//
-//    }
+    public function checkPassHash($email, $temp_password)
+    {
+        return App::get('database')->BSP_UserCheckPassHash($email, $temp_password);
+    }
 
-//    function BSP_UserCheckEmail($email);
-//
-//    function BSP_UserCheckPassHash($email, $tempPassword);
-//
-//    function BSP_UserCheckUser($email, $password);
-//
-//    public function CSP_UserActivate($email);
+
+    public function checkUser($email, $password){
+
+        return App::get('database')->BSP_UserCheckUser($email, $password);
+
+    }
+
+    public function checkUserToActivate($email, $password){
+
+        return App::get('database')->BSP_UserCheckUserToActivate($email, $password);
+
+    }
+
+
+
+    public function activate( $email)
+    {
+
+        return App::get('database')->CSP_UserActivate( $email);
+    }
 
 }
