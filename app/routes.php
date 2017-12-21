@@ -16,6 +16,7 @@ $router->get('signUp','AccountController@signUpView');
 $router->get('stylist','AccountController@stylist');
 $router->get('both','AccountController@home');
 $router->get('salon','AccountController@salon');
+$router->get('calendar','WelcomeController@calendar');
 //$router->get('search','AccountController@search');
 
 

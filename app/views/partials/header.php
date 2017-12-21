@@ -5,9 +5,13 @@
 
         <meta charset="UTF-8">
         <title>Hair BnB</title>
+        <!--    calendar-->
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <link media="all" type="text/css" rel="stylesheet" href="https://bootsnipp.com/css/fullscreen.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
 
         <!-- Slick - the carousel slider -->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -18,7 +22,6 @@
         <script src="{{url('vendor/js/angular.js')}}"></script>
 
         <script src="{{url('app/angular.module.js')}}"></script>
-<!--        <script src="{{url('app/controller/main.controller.js')}}"></script>-->
 
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -48,29 +51,29 @@
                     </div>
 
                 <?php } else {
-                        session_start();
-                        if (isset($_SESSION['id'])){
+                    session_start();
+                    if (isset($_SESSION['id'])){
 
-                            $role = $_SESSION['user_role'];
-                            if ($role===3){
-                                $a='/both  ';
-                            }elseif ($role===2){
-                                $a=' /stylist ';
-                            }else{
-                                $a=' /salon';
-                            }
+                        $role = $_SESSION['user_role'];
+                        if ($role==='3'){
+                            $a='/both  ';
+                        }elseif ($role==='2'){
+                            $a=' /stylist ';
+                        }else{
+                            $a=' /salon';
+                        }
                 ?>
 
-                            <div class="form-inline my-2 my-lg-0">
-                                <a class="nav-link mr-sm-2" href=<?= "$a"?>><?php
-                                    $firstname = ucwords($_SESSION['firstname']);
-                                    $lastname =ucwords($_SESSION['lastname']);
-                                    echo $firstname." ".$lastname;
-                                    ?></a>
-                                <a class=" nav-link my-2 my-sm-0"  href="/logout">Log Out</a>
-                            </div>
+                        <div class="form-inline my-2 my-lg-0">
+                            <a class="nav-link mr-sm-2" href=<?= "$a"?>><?php
+                                $firstname = ucwords($_SESSION['firstname']);
+                                $lastname =ucwords($_SESSION['lastname']);
+                                echo $firstname." ".$lastname;
+                                ?></a>
+                            <a class=" nav-link my-2 my-sm-0"  href="/logout">Log Out</a>
+                        </div>
 
-                        <?php } else { ?>
+                    <?php } else { ?>
 
 <!--                        <p class="nav-item " >-->
 <!--                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login </a>-->

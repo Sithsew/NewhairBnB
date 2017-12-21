@@ -8,7 +8,7 @@
 
         <div>
             <div style="padding: 3%" align="center">
-                <a href="/login"><img src="../public/images/home.png" style="height: 40px;"align="right" ></a>
+                <a href="/welcome"><img src="../public/images/home.png" style="height: 40px;"align="right" ></a>
                 <h1>Welcome to Hair BnB,</h1>
                 <h3><? echo $firstname." " .$lastname?></h3>
 

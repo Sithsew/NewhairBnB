@@ -13,6 +13,8 @@
                 <?php
                 require 'app/controllers/AccountController.php';
                 $accCont = new \App\Controllers\AccountController();
+                var_dump($accCont);
+//                errors array getting errors
                 $fnameErr= $accCont->firstnameErr;
                 $lastnameErr = $accCont->lastnameErr;
                 $emailErr = $accCont->emailErr;
@@ -21,13 +23,23 @@
                 $salonNameErr = $accCont->salonNameErr;
                 $stylistNameErr = $accCont->stylistNameErr;
 
+//                get data from fill data array(when errors are exists and filled data)
+                $firstname= $accCont->firstName;
+                $lastname = $accCont->lastName;
+                $email = $accCont->email;
+                $salon = $accCont->salon;
+                $stylist =  $accCont->stylist;
+                $salonName = $accCont->salonName;
+                $stylistName = $accCont->stylistName;
+                $emailPreference = $accCont->emailPreference;
+
                 ?>
                 <form action=" " method="post">
 
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label><b>First Name</b></label><span class="error" " >    *</span>
-                            <input type="text" class="form-control" name="firsName" required>
+                            <input type="text" class="form-control" value=<?php $firstname ?> name="firsName" required>
                             <span class="error" " > <?= $fnameErr; ?> </span>
                         </div>
 

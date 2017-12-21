@@ -41,14 +41,24 @@
                             $a=' /salon';
                         }
                 ?>
-                <p class="nav-item " ><a class="nav-link" href=<?= "$a"?>>
-                    <?php
-                        $firstname = ucwords($_SESSION['firstname']);
-                        $lastname =ucwords($_SESSION['lastname']);
-                        echo $firstname." ".$lastname;
-                    ?>
-                    </a>
-                </p>
+<!--                <p class="nav-item " ><a class="nav-link" href=--><?//= "$a"?><!-->-->
+<!--                    --><?php
+//                        $firstname = ucwords($_SESSION['firstname']);
+//                        $lastname =ucwords($_SESSION['lastname']);
+//                        echo $firstname." ".$lastname;
+//                    ?>
+<!--                    </a>-->
+<!--                </p>-->
+
+                        <div class="form-inline my-2 my-lg-0">
+                            <a class="nav-link mr-sm-2" href=<?= "$a"?>><?php
+                                $firstname = ucwords($_SESSION['firstname']);
+                                $lastname =ucwords($_SESSION['lastname']);
+                                echo $firstname." ".$lastname;
+                                ?></a>
+                            <a class=" nav-link my-2 my-sm-0"  href="/logout">Log Out</a>
+                        </div>
+
 
                 <?php } else {?>
                     <p class="nav-item " >
@@ -134,7 +144,7 @@
 
                 <h2 align="center">How it works?</h2>
 
-<!--                images-->
+
                 <div class="row" style="margin-top: 15px">
 
                     <div class="col-md-4" align="center">
@@ -152,7 +162,7 @@
 
                 </div>
 
-<!--                sentence-->
+
                 <div class="row" style="margin-top: 20px" >
 
                     <div class="col-md-4" align="center">

@@ -7,10 +7,8 @@ use App\Core\App;
 class WelcomeController
 {
 
-
     public function welcome()
     {
-
         require 'app/business services/WelcomeService.php';
         $response = new \WelcomeService();
         $topUsers = $response->welcome();
@@ -20,6 +18,9 @@ class WelcomeController
         return view('welcome', compact('salons', 'stylists'));
     }
 
-
+    public function calendar()
+    {
+        view('calendar');
+    }
 
 }

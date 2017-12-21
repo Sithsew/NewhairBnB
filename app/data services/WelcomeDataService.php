@@ -15,8 +15,5 @@ class WelcomeDataService
 
         return $topUsers;
 
-//        $stylists = App::get('database')->getTopUsers('trn_stylist', 'id', 10);
-//        dd($salons);
-
     }
 }

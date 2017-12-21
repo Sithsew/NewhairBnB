@@ -7,7 +7,6 @@ class WelcomeService{
         require 'app/data services/WelcomeDataService.php';
         $response = new \App\dataServices\WelcomeDataService();
         return $response -> welcome();
-
     }
 
 }

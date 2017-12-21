@@ -14,24 +14,20 @@ App::bind('database', new StoredProcedures(
 
 function view($name, $data = [])
 {
-
     extract($data);
 
     return require  "app/views/{$name}.view.php";
-
-
 }
 
 
-function redirect($path){
-
+function redirect($path)
+{
     header("Location:/{$path}");
-
 }
 
 
-function response($type, $message_field, $message_text, $data){
-
+function response($type, $message_field, $message_text, $data)
+{
     return [
         'type' => $type,
         'field' => $message_field,
@@ -41,7 +37,8 @@ function response($type, $message_field, $message_text, $data){
 }
 
 
-function dd($data){
+function dd($data)
+{
     echo '<pre>';
     die(var_dump($data));
     echo  '</pre>';

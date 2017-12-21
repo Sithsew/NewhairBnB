@@ -72,7 +72,7 @@
 
                     <div class="col-md-8">
 
-                        <input class="form-control" type="number" placeholder="Enter Minimum Price You Want" id="example-number-input" name="priceFrom">
+                        <input class="form-control" type="number" placeholder="Minimum Price 0$" id="example-number-input" name="priceFrom">
 
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 
                     <div class="col-md-8">
 
-                        <input class="form-control" type="number" placeholder="Enter Maximum Price You Want" id="example-number-input" name="priceTo">
+                        <input class="form-control" type="number" placeholder="Maximum Price 60$" id="example-number-input" name="priceTo">
 
                     </div>
                 </div>
@@ -140,73 +140,75 @@
         </form>
     </div>
 
-    <div class="col-md-8 " align="center" style="margin-top: 55px;padding-bottom: 700px;margin-bottom: 700px; margin-left: 25%;">
-        <div align="center" >
+    <div class="col-md-8 " align="center" style=" margin-left: 25%;padding-bottom: 600px;">
+        <div align="center" style="margin-top: 70px; padding-bottom: 500px; margin-bottom: 700px">
             <?php if (!empty($stylists)) { ?>
 
                 <h2 style="padding-top: 15px" align="center">Search Results</h2>
-                <h6 style="padding-top: 15px" align="center">
+                <h5 style="padding-top: 15px" align="center">
 
-                    <?php echo "You Searched " ;
+                    <?php
 
-                    if (!empty($search['gender'])){
-                        if ($search['gender']==1){
-                            echo " Male ";
-                        }else if ($search['skill']==2){
-                            echo " Female ";
+                        echo "You Searched " ;
+
+                        if (!empty($search['gender'])){
+                            if ($search['gender']==1){
+                                echo " Male ";
+                            }else if ($search['skill']==2){
+                                echo " Female ";
+                            }
                         }
-                    }
 
-                    if (!empty($search['skill'])){
-                        if ($search['skill']==1){
-                            echo " Professional Hair Stylists ";
-                        }else if ($search['skill']==2){
-                            echo " Hair Stylist Educators ";
-                        }else if ($search['skill']==3){
-                            echo " Apprentice ";
+                        if (!empty($search['skill'])){
+                            if ($search['skill']==1){
+                                echo " Professional Hair Stylists ";
+                            }else if ($search['skill']==2){
+                                echo " Hair Stylist Educators ";
+                            }else if ($search['skill']==3){
+                                echo " Apprentice ";
+                            }
+                        }else {
+                            echo " Freelancers ";
                         }
-                    }else {
-                        echo " Freelancers ";
-                    }
 
-                    if (!empty($search['type'])){
-                        if ($search['type']==1){
-                            echo " Specialized Type Gents ";
-                        }else if ($search['type']==2){
-                            echo " Specialized Type Ladies ";
-                        }else if ($search['type']==3){
-                            echo " Specialized Type Children ";
+                        if (!empty($search['type'])){
+                            if ($search['type']==1){
+                                echo " Specialized Type Gents ";
+                            }else if ($search['type']==2){
+                                echo " Specialized Type Ladies ";
+                            }else if ($search['type']==3){
+                                echo " Specialized Type Children ";
+                            }
                         }
-                    }
 
-                    if (!empty($search['date'])){
-                        echo " Availability on " .$search['date'];
-                    }
+                        if (!empty($search['date'])){
+                            echo " Availability on " .$search['date'];
+                        }
 
-                    if (!empty($search['location'])){
-                        echo ", in ".$search['location'];
-                    }
+                        if (!empty($search['location'])){
+                            echo ", in ".$search['location'];
+                        }
 
-                    if (!empty($search['businessName'])){
-                        echo ", with Business Name Like ".$search['businessName'];
-                    }
+                        if (!empty($search['businessName'])){
+                            echo ", with Business Name Like ".$search['businessName'];
+                        }
 
-                    if (!empty($search['priceFrom'])){
-                        echo ", with Minimum Price ".$search['priceFrom'];
-                    }
+                        if (!empty($search['priceFrom'])){
+                            echo ", with Minimum Price ".$search['priceFrom'];
+                        }
 
-                    if (!empty($search['priceTo'])){
-                        echo ", and Maximum Price ".$search['priceTo'];
-                    }
+                        if (!empty($search['priceTo'])){
+                            echo ", and Maximum Price ".$search['priceTo'];
+                        }
 
                     ?>
 
-                </h6>
+                </h5>
 
-                <div class="col-md-12" align="center" style=" margin: 2%;">
+                <div class="col-md-12" align="center" style=" margin: 2%">
                     <?php foreach ($stylists as $stylist): ?>
                         <div class="col-md-2 left" style="margin: 20px" >
-                            <div class="search card" style="width: 13rem; height:370px; padding-top: 10px;align="center">
+                            <div class="search card" style="width: 13rem; height:370px; padding-top: 10px; " align="center">
 
                                 <img class="card-img-top" src="../../public/images/proPic.jpg" alt="Card image cap" style="width: 90%;" >
 
@@ -237,8 +239,6 @@
                                         <?php } ?>
                                     </div>
 
-
-
                                 </div>
                             </div>
 
@@ -248,7 +248,6 @@
 
             <?php } else {?>
         </div>
-
 
         <div class="col-md-8 " align="" style="margin-top: 55px; height: 3px">
             <h2 style="padding: 35px" align="center">Sorry..!!! We couldn't find what you want..Try Something Else!</h2>

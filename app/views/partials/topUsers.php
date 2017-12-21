@@ -1,5 +1,5 @@
 <!--Popular hair stylists-->
-<div class="container-fluid  top-users" style="margin-bottom: 180px;padding: 30px" >
+<div class="container-fluid  top-stylists" style="padding: 30px" >
     <div class="container pop-salons" style="padding: 2%">
 
         <h2 style="padding-bottom: 10px;color: white" align="center">Popular Hair Stylists</h2>
@@ -58,12 +58,12 @@
 
         </div>
     </div>
-<!--</div>-->
-<!---->
-<!---->
-<!--/.Popular hair stylists-->
-<!---->
-<!--<div class="container-fluid top-users" style="margin-bottom: 180px;padding-left:30px;padding-right:30px;padding-bottom: 30px"" >-->
+</div>
+
+
+<!--Popular hair stylists-->
+
+<div class="container-fluid top-salons" style="margin-bottom: 180px;padding: 30px"" >
     <div class="container pop-stylists" style="padding: 2%;margin-top: 30px">
 
         <h2 style="padding-bottom: 10px;color: white" align="center" >Popular Salons</h2>

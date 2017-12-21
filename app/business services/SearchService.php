@@ -12,8 +12,6 @@
 
      function search($search)
     {
-
         return $this->response-> search($search);
-
     }
  }

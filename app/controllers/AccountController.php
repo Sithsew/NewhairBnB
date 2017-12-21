@@ -2,35 +2,60 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
 
 class AccountController
 {
     private $response;
 //    array for errors
-    public $error = [];
+    private $error = [];
 
 
-    public function test_input($data) {
+    public function __construct()
+    {
+        require 'app/business services/AccountService.php';
+        $this->response = new \AccountService();
+    }
+
+
+    public function test_input($data)
+    {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
 
-    function __construct()
-    {
-        require 'app/business services/AccountService.php';
-        $this->response = new \AccountService();
-    }
 
     function signUpView(){
         view('signUpPage' );
     }
 
-    function signUp() {
 
+    function activatingLogin()
+    {
+        view('activatedLogin');
+    }
+
+
+    function stylist()
+    {
+        view('stylist');
+    }
+
+
+    function salon(){
+        view('salon');
+    }
+
+
+    function home(){
+        view('bothUsers');
+    }
+
+
+    function signUp() {
         $userData=[];
+
         if (isset($_POST['btn-signUp'])){
 
             if (empty($_POST['firsName'])) {
@@ -43,7 +68,7 @@ class AccountController
                 $userData['firstName']=$this->test_input($_POST['firsName']);
             }
 
-//
+
             if (empty($_POST['lastName'])) {
                 $this->error['lastnameErr'] = "Last Name is required ";
             } else if (!preg_match("/^[a-zA-Z ]*$/",$_POST['lastName'])) {
@@ -60,7 +85,12 @@ class AccountController
             } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $this->error['emailErr'] = "Invalid email format";
             } else {
-                $userData['email']=$this->test_input($_POST['email']);
+                $emailExists = $this->response->checkUserEmail($_POST['email']);
+                if (empty($emailExists)){
+                    $userData['email']=$this->test_input($_POST['email']);
+                } else {
+                    $this->error['emailErr'] = "Email already exist.";
+                }
             }
 
 
@@ -118,28 +148,29 @@ class AccountController
 
             $userData['email_preference']=isset($_POST['preference'])?$this->test_input($_POST['preference']):0;
 
+
             if (!empty($this->error)){
+
                 $errors =$this->error;
                 view('signUpPage', compact('errors'));
             }else if (empty($this->error)) {
 
-                $emailExists = $this->response->checkUserEmail($userData['email']);
-                if (empty($emailExists)){
-                    $date = date('Y-m-d H:i:s');
-                    $userData['temp_password'] =  md5($userData['email']." ".$date);
+                $date = date('Y-m-d H:i:s');
+                $userData['temp_password'] =  md5($userData['email']." ".$date);
+
+                if (!empty($userData['firstName']) && !empty($userData['lastName']) && !empty($userData['email']) && !empty($userData['password']) &&!empty($userData['user_role']) && !empty($userData['temp_password']))
+                {
                     $this->response->signUp($userData);
                     $this->sendEmail($userData);
 
                     redirect('welcome');
-                } else {
-                    dd("Email already exists");
                 }
-
             }
 
         }
 
     }
+
 
     function sendEmail($userData)
     {
@@ -174,12 +205,13 @@ class AccountController
                 </body>
             </html>
         ";
-// Always set content-type when sending HTML email
+
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         mail($to,$subject,$message,$headers);
         redirect('welcome');
     }
+
 
     function activateUser()
     {
@@ -200,18 +232,24 @@ class AccountController
                 if ($active){
                     $details = $this->response->getUser($loginEmail,$password);
                     if ($details){
-                        $role = $details[0]->user_role;
                         session_start();
+                        $role = $details[0]->user_role;
                         $_SESSION['id']=$details[0]->id;
                         $_SESSION['firstname']=$details[0]->firstname;
                         $_SESSION['lastname']= $details[0]->lastname;
+
                         if ($role==='3'){
+                            $_SESSION['user_role'] = $role;
                             view('bothUsers');
                         }elseif ($role==='1'){
+                            $_SESSION['user_role'] = $role;
                             view('salon');
                         }elseif ($role==='2'){
+                            $_SESSION['user_role'] = $role;
                             view('stylist');
                         }
+
+
                     }
                 }
             }else {
@@ -226,14 +264,9 @@ class AccountController
 
     }
 
-    function activatingLogin()
-    {
-        view('activatedLogin');
-    }
 
     function login()
     {
-
         $loginEmail = isset($_POST['email'])?$this->test_input($_POST['email']):null;
         $loginPassword=isset($_POST['password'])?$this->test_input($_POST['password']):null;
         if (!empty($loginEmail)&& !empty($loginPassword)){
@@ -262,32 +295,17 @@ class AccountController
             view('activatedLogin',compact('errors') );
         }
 
-
     }
 
-    function stylist()
-    {
-        view('stylist');
-    }
-
-    function salon(){
-        view('salon');
-    }
-
-    function home(){
-        view('bothUsers');
-    }
 
     function logout(){
-        // Initialize the session.
-        // If you are using session_name("something"), don't forget it now!
         session_start();
 
         // Unset all of the session variables.
         $_SESSION = array();
 
-    // If it's desired to kill the session, also delete the session cookie.
-    // Note: This will destroy the session, and not just the session data!
+        // If it's desired to kill the session, also delete the session cookie.
+        // Note: This will destroy the session, and not just the session data!
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
             setcookie(session_name(), '', time() - 42000,
@@ -296,7 +314,7 @@ class AccountController
             );
         }
 
-// Finally, destroy the session.
+        // Finally, destroy the session.
         session_destroy();
         redirect('welcome');
     }

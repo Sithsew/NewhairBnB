@@ -14,10 +14,12 @@ class AccountDataService
         return App::get('database')-> BSP_UserCheckEmail($email);
     }
 
+
     public function getUserDetails($email, $password)
     {
         return App::get('database')->BSP_UserGetDetails($email, $password);
     }
+
 
     public function insertUser($userData)
     {
@@ -69,6 +71,7 @@ class AccountDataService
 
     }
 
+
     public function checkPassHash($email, $temp_password)
     {
         return App::get('database')->BSP_UserCheckPassHash($email, $temp_password);
@@ -81,6 +84,7 @@ class AccountDataService
 
     }
 
+
     public function checkUserToActivate($email, $password){
 
         return App::get('database')->BSP_UserCheckUserToActivate($email, $password);
@@ -88,10 +92,8 @@ class AccountDataService
     }
 
 
-
     public function activate( $email)
     {
-
         return App::get('database')->CSP_UserActivate( $email);
     }
 

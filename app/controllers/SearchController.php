@@ -47,8 +47,5 @@ class SearchController
 
     }
 
-//    function searchView(){
-//        view('search');
-//    }
 }
 
